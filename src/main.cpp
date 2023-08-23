@@ -85,15 +85,15 @@ void autonomous()
 
 	ace::reset_motors();
 
-	if (curr_auton == "score")
+	if (curr_auton == "1")
 	{
 		ace::auton::score();
 	}
-	else if (curr_auton == "contact")
+	else if (curr_auton == "2")
 	{
 		ace::auton::contact();
 	}
-	else if (curr_auton == "skills")
+	else if (curr_auton == "3")
 	{
 		ace::auton::skills();
 	}
