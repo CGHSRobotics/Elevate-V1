@@ -162,8 +162,7 @@ namespace ace::lvgl {
 		__task_brain_screen_update.set_priority(TASK_PRIORITY_DEFAULT - 1);
 		has_init = true;
 	}
-
-	/* ========================================================================== */
+	/* ======================================================================== */
 	/*                             Screen Update Task                             */
 	/* ========================================================================== */
 	static void brain_screen_update() {
@@ -296,38 +295,37 @@ namespace ace::lvgl {
 
 		// Style for Screen
 		lv_style_copy(&style_screen, &lv_style_plain);
-		style_screen.body.main_color = LV_COLOR_BLACK;
-		style_screen.body.grad_color = LV_COLOR_BLACK;
+		style_screen.body.main_color = LV_COLOR_NAVY;
+		style_screen.body.grad_color = LV_COLOR_WHITE;
 
 		// Style for text
 		lv_style_copy(&style_text, &lv_style_pretty);
-		style_text.body.main_color = LV_COLOR_RED;
-		style_text.body.grad_color = LV_COLOR_RED;
-		style_text.text.color = LV_COLOR_RED;
+		style_text.body.main_color = LV_COLOR_WHITE;
+		style_text.body.grad_color = LV_COLOR_NAVY;
+		style_text.text.color = LV_COLOR_BLACK;
 		style_text.text.font = &ace_IBMPlexMono_20;
 
 		// Style for text
 		lv_style_copy(&style_text_title, &style_text);
-		style_text_title.body.main_color = LV_COLOR_RED;
-		style_text_title.body.grad_color = LV_COLOR_RED;
-		style_text_title.text.color = LV_COLOR_RED;
+		style_text_title.body.main_color = LV_COLOR_NAVY;
+		style_text_title.body.grad_color = LV_COLOR_WHITE;
+		style_text_title.text.color = LV_COLOR_BLACK;
 		style_text_title.text.font = &ace_IBMPlexMono_30;
 
-		// Style for Empty Container
+		// Style for Empty Container--- Beginning screen//
 		lv_style_copy(&style_container_empty, &lv_style_plain);
-		style_container_empty.body.grad_color = LV_COLOR_BLACK;
-		style_container_empty.body.main_color = LV_COLOR_BLACK;
-		style_container_empty.body.border.color = LV_COLOR_BLACK;
+		style_container_empty.body.grad_color = LV_COLOR_NAVY;
+		style_container_empty.body.main_color = LV_COLOR_NAVY;
+		style_container_empty.body.border.color = LV_COLOR_GRAY;
 		style_container_empty.body.border.width = 0;
 		style_container_empty.body.padding.hor = 0;
 		style_container_empty.body.padding.ver = 0;
 		style_container_empty.body.padding.inner = 10;
 
-		// Style for Container with Red Border
+		// Style for Container with white with text begginign and screen with tabs//
 		lv_style_copy(&style_container_red, &lv_style_plain);
-		style_container_red.body.grad_color = LV_COLOR_BLACK;
-		style_container_red.body.main_color = LV_COLOR_BLACK;
-		style_container_red.body.border.color = LV_COLOR_RED;
+		style_container_red.body.grad_color = LV_COLOR_WHITE;
+		style_container_red.body.border.color = LV_COLOR_GRAY;
 		style_container_red.body.border.width = 2;
 		style_container_red.body.radius = 10;
 		style_container_red.body.padding.hor = 10;
@@ -337,35 +335,35 @@ namespace ace::lvgl {
 		// Preloader Style
 		lv_style_copy(&style_preload, &lv_style_plain);
 		style_preload.line.width = 10;
-		style_preload.line.color = LV_COLOR_RED;
+		style_preload.line.color = LV_COLOR_BLUE;
 		style_preload.body.border.width = 6;
 		style_preload.body.padding.hor = 0;
-		style_preload.body.main_color = LV_COLOR_BLACK;
-		style_preload.body.grad_color = LV_COLOR_BLACK;
+		style_preload.body.main_color = LV_COLOR_NAVY;
+		style_preload.body.grad_color = LV_COLOR_WHITE																																																							;
 		style_preload.body.border.color = LV_COLOR_BLACK;
 
 		// Bar Style
 		lv_style_copy(&style_bar, &lv_style_pretty);
-		style_bar.body.main_color = LV_COLOR_BLACK;
-		style_bar.body.grad_color = LV_COLOR_GRAY;
+		style_bar.body.main_color = LV_COLOR_NAVY;
+		style_bar.body.grad_color = LV_COLOR_WHITE;
 		style_bar.body.radius = 0;
-		style_bar.body.border.color = LV_COLOR_WHITE;
+		style_bar.body.border.color = LV_COLOR_NAVY;
 
 		// Bar Style Indicator
 		lv_style_copy(&style_bar_indic, &lv_style_pretty);
-		style_bar_indic.body.grad_color = LV_COLOR_YELLOW;
-		style_bar_indic.body.main_color = LV_COLOR_RED;
+		style_bar_indic.body.grad_color = LV_COLOR_NAVY;
+		style_bar_indic.body.main_color = LV_COLOR_NAVY;
 		style_bar_indic.body.radius = 0;
 		style_bar_indic.body.shadow.width = 5;
-		style_bar_indic.body.shadow.color = LV_COLOR_ORANGE;
+		style_bar_indic.body.shadow.color = LV_COLOR_NAVY;
 		style_bar_indic.body.padding.hor = 3;
 		style_bar_indic.body.padding.ver = 3;
 
 		// Button Style Indicator
 		lv_style_copy(&style_btn, &lv_style_pretty);
-		style_btn.body.grad_color = LV_COLOR_BLACK;
-		style_btn.body.main_color = LV_COLOR_BLACK;
-		style_btn.body.border.color = LV_COLOR_RED;
+		style_btn.body.grad_color = LV_COLOR_WHITE;
+		style_btn.body.main_color = LV_COLOR_WHITE;
+		style_btn.body.border.color = LV_COLOR_BLACK;
 		style_btn.body.border.width = 2;
 		style_btn.body.radius = 10;
 		style_btn.body.padding.hor = 5;
@@ -375,21 +373,21 @@ namespace ace::lvgl {
 
 		// Tabview BG Style Indicator
 		lv_style_copy(&style_tabview_bg, &lv_style_pretty);
-		style_tabview_bg.body.grad_color = LV_COLOR_BLACK;
-		style_tabview_bg.body.main_color = LV_COLOR_BLACK;
-		style_tabview_bg.body.border.color = LV_COLOR_RED;
+		style_tabview_bg.body.grad_color = LV_COLOR_NAVY;
+		style_tabview_bg.body.main_color = LV_COLOR_NAVY;
+		style_tabview_bg.body.border.color = LV_COLOR_BLACK;
 		style_tabview_bg.body.border.width = 2;
 		style_tabview_bg.body.radius = 0;
-		style_tabview_bg.body.padding.hor = 0;
+		style_tabview_bg.body.padding.hor = 0;		
 		style_tabview_bg.body.padding.ver = 0;
 		style_tabview_bg.body.border.opa = 255;
 		style_tabview_bg.body.shadow.width = 0;
 
 		// Tabview Indicator Style Indicator
 		lv_style_copy(&style_tabview_indic, &lv_style_pretty);
-		style_tabview_indic.body.grad_color = LV_COLOR_RED;
-		style_tabview_indic.body.main_color = LV_COLOR_RED;
-		style_tabview_indic.body.border.color = LV_COLOR_RED;
+		style_tabview_indic.body.grad_color = LV_COLOR_WHITE;
+		style_tabview_indic.body.main_color = LV_COLOR_WHITE;
+		style_tabview_indic.body.border.color = LV_COLOR_BLACK;
 		style_tabview_indic.body.border.width = 2;
 		style_tabview_indic.body.radius = 0;
 		style_tabview_indic.body.padding.hor = 0;
@@ -399,9 +397,9 @@ namespace ace::lvgl {
 
 		// Tabview Indicator Style Indicator
 		lv_style_copy(&style_tabview_pr, &lv_style_pretty);
-		style_tabview_pr.body.grad_color = LV_COLOR_RED;
-		style_tabview_pr.body.main_color = LV_COLOR_RED;
-		style_tabview_pr.body.border.color = LV_COLOR_RED;
+		style_tabview_pr.body.grad_color = LV_COLOR_WHITE;
+		style_tabview_pr.body.main_color = LV_COLOR_WHITE;
+		style_tabview_pr.body.border.color = LV_COLOR_BLACK;
 		style_tabview_pr.body.border.width = 3;
 		style_tabview_pr.body.radius = 0;
 		style_tabview_pr.body.padding.hor = 0;
@@ -409,11 +407,11 @@ namespace ace::lvgl {
 		style_tabview_pr.body.border.opa = 255;
 		style_tabview_pr.body.shadow.width = 0;
 
-		// Tabview Indicator Style Indicator
+		// Tabview Indicator Style Indicator// Bar with Buttons (HOME<AUTON>>>)
 		lv_style_copy(&style_tabview_rel, &lv_style_pretty);
-		style_tabview_rel.body.grad_color = LV_COLOR_BLACK;
-		style_tabview_rel.body.main_color = LV_COLOR_BLACK;
-		style_tabview_rel.body.border.color = LV_COLOR_RED;
+		style_tabview_rel.body.grad_color = LV_COLOR_WHITE;
+		style_tabview_rel.body.main_color = LV_COLOR_WHITE;
+		style_tabview_rel.body.border.color = LV_COLOR_BLACK;
 		style_tabview_rel.body.border.width = 2;
 		style_tabview_rel.body.radius = 0;
 		style_tabview_rel.body.padding.hor = 0;
@@ -424,9 +422,9 @@ namespace ace::lvgl {
 
 		// Tab 2 Auton Dropdown Style
 		lv_style_copy(&style_ddm, &lv_style_pretty);
-		style_ddm.body.grad_color = LV_COLOR_BLACK;
-		style_ddm.body.main_color = LV_COLOR_BLACK;
-		style_ddm.body.border.color = LV_COLOR_RED;
+		style_ddm.body.grad_color = LV_COLOR_WHITE;
+		style_ddm.body.main_color = LV_COLOR_WHITE;
+		style_ddm.body.border.color = LV_COLOR_BLACK;
 		style_ddm.body.border.width = 2;
 		style_ddm.body.radius = 4;
 		style_ddm.body.padding.hor = 5;
@@ -438,9 +436,9 @@ namespace ace::lvgl {
 
 		//Button Matrix Style
 		lv_style_copy(&style_btnm, &lv_style_pretty);
-		style_btnm.body.grad_color = LV_COLOR_BLACK;
-		style_btnm.body.main_color = LV_COLOR_BLACK;
-		style_btnm.body.border.color = LV_COLOR_RED;
+		style_btnm.body.grad_color = LV_COLOR_WHITE;
+		style_btnm.body.main_color = LV_COLOR_WHITE;
+		style_btnm.body.border.color = LV_COLOR_BLACK;
 		style_btnm.body.border.width = 2;
 		style_btnm.body.radius = 4;
 		style_btnm.body.padding.hor = 5;
@@ -454,14 +452,14 @@ namespace ace::lvgl {
 		lv_style_copy(&style_chart, &lv_style_pretty);
 		style_chart.body.grad_color = LV_COLOR_MAKE(0x22, 0x22, 0x11);
 		style_chart.body.main_color = LV_COLOR_MAKE(0x22, 0x22, 0x11);
-		style_chart.body.border.color = LV_COLOR_RED;
+		style_chart.body.border.color = LV_COLOR_BLUE;
 		style_chart.body.border.width = 2;
 		style_chart.body.radius = 5;
 		style_chart.body.padding.hor = 0;
 		style_chart.body.padding.ver = 0;
 		style_chart.body.border.opa = 255;
 		style_chart.body.shadow.width = 0;
-		style_chart.line.color = LV_COLOR_RED;
+		style_chart.line.color = LV_COLOR_BLUE;
 		style_chart.line.width = 1;
 
 	}
