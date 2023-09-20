@@ -46,7 +46,9 @@ namespace ace
 	// leds
 	pros::ADILed led(PORT_LED, 60);
 
-	A_Motor launcherMotor(PORT_LAUNCHER, MOTOR_GEARSET_36, true);
+	A_Motor launcherMotorLeft(PORT_LAUNCHER_LEFT, MOTOR_GEARSET_06, true);
+
+	A_Motor launcherMotorRight(PORT_LAUNCHER_RIGHT, MOTOR_GEARSET_06, false);
 
 	A_Motor intakeMotorLeft(PORT_INTAKE_LEFT, MOTOR_GEARSET_18, false);
 
@@ -214,15 +216,17 @@ namespace ace
 	/* -------------------------------------------------------------------------- */
 
 	bool curr_launching = false;
-	util::timer long_launch_timer(500);
+	util::timer long_launch_timer(650);
 
 
 	//launch triball
 	
 	void launch(float speed){
-		launcherMotor.move_voltage(speed * 120);
-		pros::delay(500);
-		launcherMotor.move_voltage(speed * -120);
+		launcherMotorLeft.move_voltage(speed * 120);
+		launcherMotorRight.move_voltage(speed * 120);
+		pros::delay(650);
+		launcherMotorLeft.move_voltage(speed * -120);
+		launcherMotorRight.move_voltage(speed * -120);
 		/*
 		pros::delay(1000);
 		launcherMotor.move_voltage(speed * -120 );
@@ -280,15 +284,18 @@ namespace ace
 	{
 		curr_launching = false;
 		if (enabled)
-			launcherMotor.move_velocity(speed * 6);
+			launcherMotorLeft.move_velocity(speed * 6);
+			
 		else
-			launcherMotor.move_velocity(0);
+			launcherMotorLeft.move_velocity(0);
+			
 	}
 
 	// reset motors to 0 voltage
 	void reset_motors()
 	{	
-		launcherMotor.move_voltage(0);
+		launcherMotorLeft.move_voltage(0);
+		launcherMotorRight.move_voltage(0);
 		intakeMotorLeft.move_voltage(0);
 		intakeMotorRight.move_voltage(0);
 	

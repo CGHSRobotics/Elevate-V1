@@ -49,7 +49,7 @@ void initialize()
 	chassis.initialize();
 	ace::intakeMotorLeft.init();
 	ace::intakeMotorRight.init();
-	ace::launcherMotor.init();
+	ace::launcherMotorLeft.init();
 	pros::lcd::shutdown();
 
 	ace::endgame_timer.currTime = ace::endgame_timer.maxTime + 100;
@@ -296,7 +296,7 @@ void opcontrol()
 		// Line 1 - Master
 		ace::update_cntr_text(ace::cntr_master, 0,
 			(std::string)"Master" +
-			"  " + std::to_string((int)ace::launcherMotor.get_temp()) + "F" + " " + std::to_string((int)pros::battery::get_capacity()) + "%");
+			"  " + std::to_string((int)ace::launcherMotorLeft.get_temp()) + "F" + " " + std::to_string((int)pros::battery::get_capacity()) + "%");
  
 		// Line 1 - Partner
 		ace::update_cntr_text(ace::cntr_partner, 0,

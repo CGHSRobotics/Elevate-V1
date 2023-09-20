@@ -174,7 +174,7 @@ namespace ace::lvgl {
 			if (has_init) {
 
 				//Launcher Slider
-				int launch_rpm = ace::launcherMotor.get_actual_velocity() * 6;
+				int launch_rpm = ace::launcherMotorLeft.get_actual_velocity() * 6;
 				lv_bar_set_value(main_bar, launch_rpm);
 				lv_label_set_text(main_bar_label, std::to_string(launch_rpm).c_str());
 				lv_obj_align(main_bar_label, NULL, LV_ALIGN_IN_TOP_LEFT, 50, (1 - ((float)lv_bar_get_value(main_bar) / 3600.0)) * 220 + 5);
@@ -193,7 +193,7 @@ namespace ace::lvgl {
 				// Set temp Text
 				lv_label_set_text(menu_tab3_cont1_labelTemp1,
 					(
-						(std::string)" Launcher: " + std::to_string((int)ace::launcherMotor.get_temp()) + "\n\n" +
+						(std::string)" Launcher: " + std::to_string((int)ace::launcherMotorLeft.get_temp()) + "\n\n" +
 						" Chassis L F: " + std::to_string((int)ace::util::cel_to_faren(chassis.left_motors[0].get_temperature())) + "\n" +
 						" Chassis L B: " + std::to_string((int)ace::util::cel_to_faren(chassis.left_motors[1].get_temperature())) + "\n" +
 						" "
@@ -250,9 +250,9 @@ namespace ace::lvgl {
 						lv_obj_set_hidden(menu_tab4_ross, true);
 						lv_obj_set_hidden(menu_tab4_chart, false);
 
-						lv_chart_set_next(menu_tab4_chart, menu_tab4_chart_ser_rpm, ace::launcherMotor.get_percent_velocity());
-						lv_chart_set_next(menu_tab4_chart, menu_tab4_chart_ser_setrpm, ace::launcherMotor.get_voltage() / 120.0f);
-						lv_chart_set_next(menu_tab4_chart, menu_tab4_chart_ser_torque, ace::launcherMotor.get_percent_torque());
+						lv_chart_set_next(menu_tab4_chart, menu_tab4_chart_ser_rpm, ace::launcherMotorLeft.get_percent_velocity());
+						lv_chart_set_next(menu_tab4_chart, menu_tab4_chart_ser_setrpm, ace::launcherMotorLeft.get_voltage() / 120.0f);
+						lv_chart_set_next(menu_tab4_chart, menu_tab4_chart_ser_torque, ace::launcherMotorLeft.get_percent_torque());
 					}
 					// if intake
 					else if (curr_selected == 2)
