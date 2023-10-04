@@ -81,6 +81,7 @@ namespace ace {
 	/* ------------------------- Other Motors / Devices ------------------------- */
 	#define PORT_INTAKE_LEFT 20
 	#define PORT_INTAKE_RIGHT 12
+	#define PORT_INTAKE_TOP -19
 	#define PORT_LAUNCHER_LEFT 11
 	#define PORT_LAUNCHER_RIGHT 16
 
@@ -175,7 +176,7 @@ namespace ace {
 
 	// Launcher Speeds
 	
-	const float LAUNCH_SPEED = 70.0;
+	const float LAUNCH_SPEED = 100.0;
 	
 	const float LAUNCH_SPEED_STANDBY = LAUNCH_SPEED;
 	const float LAUNCHER_SPEED_CUTOFF = 5;
@@ -234,6 +235,9 @@ namespace ace {
 
 	// Motor for intake right
 	extern A_Motor intakeMotorRight;
+
+	//Motor for top intake
+	extern A_Motor intakeMotorTop;
 
 	// Vision sensor
 	const pros::Vision visionSensor(PORT_VISION, pros::E_VISION_ZERO_CENTER);
@@ -323,7 +327,7 @@ namespace ace {
 	 * @brief 	runs intake reverse
 	 *
 	 */
-	extern void intake_reverse();
+	extern void intake_reverse(bool enabled);
 
 
 	/**

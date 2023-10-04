@@ -115,13 +115,15 @@ void opcontrol()
 		/* -------------------------------- Get Input ------------------------------- */
 		
 		// Intake Toggle
-		if (ace::btn_intake_toggle.get_press_new())
+		if (ace::btn_intake_toggle.get_press())
 		{
-			ace::intake_enabled = !ace::intake_enabled;
-			if (ace::intake_enabled)
-			{
-				ace::update_cntr_haptic("-", false);
-			}
+			ace::intake_enabled = true;
+			ace::intake_reverse_enabled = false;
+			ace::update_cntr_haptic("-", false);
+			
+
+		} else {
+			ace::intake_enabled = false;
 
 		}
 
@@ -140,7 +142,7 @@ void opcontrol()
 		}
 
 		// Launcher
-		if (ace::btn_launch.get_press_new())
+		if (ace::btn_launch.get_press())
 		{
 			ace::launch(ace::launch_speed);		
 			/*
@@ -150,6 +152,12 @@ void opcontrol()
 				ace::update_cntr_haptic("-", false);
 			}
 			*/
+		//} else {
+			//(ace::LauncherMotorRight.move_voltage(0));
+
+
+
+
 		}
 
 	/*
@@ -271,8 +279,13 @@ void opcontrol()
 			// Intake Reverse
 			if (ace::intake_reverse_enabled)
 			{
-				ace::intake_reverse();
+				ace::intake_reverse(true);
 				break;
+			}
+			else
+			{
+				ace::intakeMotorRight.spin_percent(0);
+				ace::intakeMotorLeft.spin_percent(0);
 			}
 
 			// Intake Toggle

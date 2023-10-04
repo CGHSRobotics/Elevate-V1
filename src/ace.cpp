@@ -53,6 +53,7 @@ namespace ace
 	A_Motor intakeMotorLeft(PORT_INTAKE_LEFT, MOTOR_GEARSET_18, false);
 
 	A_Motor intakeMotorRight(PORT_INTAKE_RIGHT,MOTOR_GEARSET_18, true);
+	A_Motor intakeMotorTop(PORT_INTAKE_TOP, MOTOR_GEARSET_36, true);
 
 	/* ========================================================================= */
 	/*                              Class Definitions                             */
@@ -174,7 +175,7 @@ namespace ace
 			{
 				return partner.get_digital(btn_partner);
 			}
-			else
+			else	
 			{
 				return false;
 			}
@@ -222,11 +223,11 @@ namespace ace
 	//launch triball
 	
 	void launch(float speed){
-		launcherMotorLeft.move_voltage(speed * 120);
+		
 		launcherMotorRight.move_voltage(speed * 120);
-		pros::delay(650);
-		launcherMotorLeft.move_voltage(speed * 0);
-		launcherMotorRight.move_voltage(speed * 0);
+		pros::delay(1000);
+		launcherMotorRight.move_voltage(speed * 120);
+
 		/*
 		pros::delay(1000);
 		launcherMotor.move_voltage(speed * -120 );
@@ -356,6 +357,8 @@ namespace ace
 		{
 			intakeMotorLeft.spin_percent(INTAKE_SPEED);
 			intakeMotorRight.spin_percent(INTAKE_SPEED);
+			intakeMotorTop.spin_percent(INTAKE_SPEED);
+
 		}
 
 		// Not enabled
@@ -364,13 +367,25 @@ namespace ace
 			intake_timer.reset();
 			intakeMotorLeft.spin_percent(0);
 			intakeMotorRight.spin_percent(0);
+			intakeMotorTop.spin_percent(0);
+
 		}
 	}
 
-	void intake_reverse()
+	void intake_reverse(bool enabled)
 	{
-		intakeMotorLeft.spin_percent(-INTAKE_SPEED);
-		intakeMotorRight.spin_percent(-INTAKE_SPEED);
+		if (enabled) {
+			intakeMotorLeft.spin_percent(-INTAKE_SPEED);
+			intakeMotorRight.spin_percent(-INTAKE_SPEED);
+			intakeMotorTop.spin_percent(-INTAKE_SPEED);
+
+
+		}else {
+			intakeMotorLeft.spin_percent(0);
+			intakeMotorRight.spin_percent(0);
+			intakeMotorTop.spin_percent(0);
+		}
+
 	}
 
 	/* ------------------------------ Vision Sensor ----------------------------- */
