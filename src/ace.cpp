@@ -225,8 +225,8 @@ namespace ace
 		launcherMotorLeft.move_voltage(speed * 120);
 		launcherMotorRight.move_voltage(speed * 120);
 		pros::delay(650);
-		launcherMotorLeft.move_voltage(speed * -120);
-		launcherMotorRight.move_voltage(speed * -120);
+		launcherMotorLeft.move_voltage(speed * 0);
+		launcherMotorRight.move_voltage(speed * 0);
 		/*
 		pros::delay(1000);
 		launcherMotor.move_voltage(speed * -120 );
