@@ -12,8 +12,7 @@ namespace ace::auton {
 	/*                               Score Auton                                   */
 	/* ========================================================================== */
 	void score() {
-	drive_chassis(12, DRIVE_SPEED);
-	launch_auton(3, LAUNCH_SPEED);
+	drive_chassis(48, DRIVE_SPEED);
 	turn_chassis(180, TURN_SPEED);
 	drive_chassis(12, DRIVE_SPEED);
 	intake_toggle(true);
@@ -64,8 +63,7 @@ namespace ace::auton {
 	/*                                   Skills                                   */
 	/* ========================================================================== */
 	void skills() {
-
-
+		
 	}
 
 	/* ========================================================================== */
