@@ -152,8 +152,8 @@ void opcontrol()
 				ace::update_cntr_haptic("-", false);
 			}
 			*/
-		//} else {
-			//(ace::LauncherMotorRight.move_voltage(0));
+		} else {
+			ace::btn_launch(false);
 
 
 
@@ -284,8 +284,7 @@ void opcontrol()
 			}
 			else
 			{
-				ace::intakeMotorRight.spin_percent(0);
-				ace::intakeMotorLeft.spin_percent(0);
+				ace::intake_reverse(false)
 			}
 
 			// Intake Toggle
@@ -296,8 +295,7 @@ void opcontrol()
 			}
 			else
 			{
-				ace::intakeMotorRight.spin_percent(0);
-				ace::intakeMotorLeft.spin_percent(0);
+				ace::intake_toggle(false);
 			}
 
 			// flapjack
