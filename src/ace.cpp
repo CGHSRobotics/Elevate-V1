@@ -20,7 +20,7 @@ Drive chassis(
 
 	// Cartridge RPM
 	,
-	200
+	600
 
 	// External Gear Ratio (MUST BE DECIMAL)
 	,
@@ -299,6 +299,7 @@ namespace ace
 		launcherMotorRight.move_voltage(0);
 		intakeMotorLeft.move_voltage(0);
 		intakeMotorRight.move_voltage(0);
+		
 	
 
 		launcher_standby_enabled = false;
