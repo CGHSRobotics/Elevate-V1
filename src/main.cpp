@@ -25,7 +25,7 @@ void initialize()
 	// load lvgl loading screen
 	ace::lvgl::init_lvgl();
 
-	pros::delay(500); // Stop the user from doing anything while legacy ports configure.
+	pros::delay(250); // Stop the user from doing anything while legacy ports configure.
 
 	// Configure your chassis controls
 	chassis.toggle_modify_curve_with_controller(false); // Enables modifying the controller curve with buttons on the joysticks
@@ -152,8 +152,9 @@ void opcontrol()
 				ace::update_cntr_haptic("-", false);
 			}
 			*/
-		//} else {
-			//(ace::LauncherMotorRight.move_voltage(0));
+		} else {
+			//ace::btn_launch(false);
+			ace::launch(0);
 
 
 
@@ -284,8 +285,7 @@ void opcontrol()
 			}
 			else
 			{
-				ace::intakeMotorRight.spin_percent(0);
-				ace::intakeMotorLeft.spin_percent(0);
+				ace::intake_reverse(false);
 			}
 
 			// Intake Toggle
@@ -296,8 +296,7 @@ void opcontrol()
 			}
 			else
 			{
-				ace::intakeMotorRight.spin_percent(0);
-				ace::intakeMotorLeft.spin_percent(0);
+				ace::intake_toggle(false);
 			}
 
 			// flapjack

@@ -53,7 +53,8 @@ namespace ace
 	A_Motor intakeMotorLeft(PORT_INTAKE_LEFT, MOTOR_GEARSET_18, false);
 
 	A_Motor intakeMotorRight(PORT_INTAKE_RIGHT,MOTOR_GEARSET_18, true);
-	A_Motor intakeMotorTop(PORT_INTAKE_TOP, MOTOR_GEARSET_36, true);
+	
+	A_Motor intakeMotorTop(PORT_INTAKE_TOP, MOTOR_GEARSET_36, false);
 
 	/* ========================================================================= */
 	/*                              Class Definitions                             */
@@ -225,8 +226,8 @@ namespace ace
 	void launch(float speed){
 		
 		launcherMotorRight.move_voltage(speed * 120);
-		pros::delay(1000);
-		launcherMotorRight.move_voltage(speed * 120);
+		
+		
 
 		/*
 		pros::delay(1000);
@@ -299,7 +300,8 @@ namespace ace
 		launcherMotorRight.move_voltage(0);
 		intakeMotorLeft.move_voltage(0);
 		intakeMotorRight.move_voltage(0);
-		
+		intakeMotorTop.move_voltage(0);
+
 	
 
 		launcher_standby_enabled = false;

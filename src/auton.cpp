@@ -47,6 +47,10 @@ namespace ace::auton {
 	/*                              Three Side Auton                              */
 	/* ========================================================================== */
 	void three_side() {
+	drive_chassis(48, DRIVE_SPEED);
+	turn_chassis(180, TURN_SPEED);
+	drive_chassis(12, DRIVE_SPEED);
+	intake_toggle(true);
 	// Dead
 	}
 
@@ -63,7 +67,11 @@ namespace ace::auton {
 	/*                                   Skills                                   */
 	/* ========================================================================== */
 	void skills() {
-		
+		drive_chassis(24, DRIVE_SPEED);
+	turn_chassis(-90, TURN_SPEED);
+	drive_chassis(6, DRIVE_SPEED);
+	intake_reverse(true);
+	
 	}
 
 	/* ========================================================================== */
