@@ -25,6 +25,8 @@ Drive chassis(
 	// External Gear Ratio (MUST BE DECIMAL)
 	,
 	1.25);
+
+
 // partner controller
 pros::Controller partner(pros::E_CONTROLLER_PARTNER);
 
@@ -225,61 +227,15 @@ namespace ace
 	
 	void launch(float speed){
 		
-		launcherMotorRight.move_voltage(speed * 120);
-		
-		
+		launcherMotorRight.move_voltage(speed * 120);	
 
-		/*
-		pros::delay(1000);
-		launcherMotor.move_voltage(speed * -120 );
-		//This will vary as we need to also counteract the + motion of the motor
-		pros::delay(1000);
-		launcherMotor.move_voltage(0);
-	*/
 	}
-	// Launch disks
-	/*
-	void launch(float speed, bool isLong)
-	{
-		long_launch_timer.update(ez::util::DELAY_TIME);	
-		// if lower than speed
-		if (!curr_launching && launcherMotor.get_actual_velocity() < (speed - LAUNCHER_SPEED_CUTOFF) * 6.0)
-		{
-			launcherMotor.move_voltage(12000);
-			intakeMotor.spin_percent(100);
-			return;
-		}
-		// wait for angle auto target
-		else if (!curr_launching && auto_targeting_enabled && std::abs(theta) >= 2.0 || !long_launch_timer.done())
-		{
-			launcherMotor.move_voltage(speed * 120.0);
-			intakeMotor.spin_percent(100);
-			return;
-		}
-		// FIRE ZE WEAPON
-		else
-		{
-2			// fire rapidly no matter what if target speed  cvis under 80 while button is held
-			if (!isLong)
-			{
-				curr_launching = true;
-			}
 
-			// if speed drops while rapid firing, boost voltage to 100% to supplement speed loss
-			if (launcherMotor.get_actual_velocity() < (speed - 5.0) * 6.0)
-			{
-				launcherMotor.move_voltage(12000);
-				//12000 initial, causes slight issues 
-			}
-			else
-			{
-				launcherMotor.move_voltage(speed * 120.0);
-			}
+	//void launch_reverse(float speed){
 
-			intakeMotor.spin_percent(-100);
-		}
-	}
-*/
+		//launcherMotorRight.move_voltage(-launch_speed);
+
+	//}
 
 	// launch standby
 	void launch_standby(bool enabled, float speed)
@@ -302,8 +258,6 @@ namespace ace
 		intakeMotorRight.move_voltage(0);
 		intakeMotorTop.move_voltage(0);
 
-	
-
 		launcher_standby_enabled = false;
 
 		flapPneumatics.set_value(false);
@@ -325,10 +279,9 @@ namespace ace
 		{
 			endgamePneumatics.set_value(0);
 		}
+	}\
 
-
-
-	}
+	
 	// toggles endgame
 	void endgame_toggle(bool enabled)
 	{
@@ -412,10 +365,9 @@ namespace ace
 				auton::drive_chassis(1, DRIVE_SPEED);
 
 			}
-
 		}
 	}
-/*   
+
 	/* ------------------------------ Light Sensor ------------------------------ */
 	int ambient_light = 0;
 	float light_diff_factor = 1.2;

@@ -79,7 +79,7 @@ namespace ace {
 	#define PORT_CHASSIS_R_B 17
 
 	/* ------------------------- Other Motors / Devices ------------------------- */
-	#define PORT_INTAKE_LEFT 20
+	#define PORT_INTAKE_LEFT 1
 	#define PORT_INTAKE_RIGHT 12
 	#define PORT_INTAKE_TOP -19
 	#define PORT_LAUNCHER_LEFT 11
@@ -156,11 +156,13 @@ namespace ace {
 	/* ----------------------- User Control Enabled Bools ----------------------- */
 
 	static bool launcher_standby_enabled = false;
+
 	static bool intake_enabled = false;
 	static bool intake_reverse_enabled = false;
 	//static bool launch_short_enabled = false;
 	//static bool launch_long_enabled = false;
 	static bool launch_enabled = false;
+	//static bool launch_reverse_enabled = false;
 	static bool endgame_enabled = false;
 	static bool auto_targeting_enabled = false;
 	static bool flap_enabled = false;
@@ -184,7 +186,6 @@ namespace ace {
 	// Chassis Speeds ( * 1.27 to fit in range of [-127, 127])
 	const float DRIVE_SPEED = 87.0 * 1.27; // 87
 	const float DRIVE_SPEED_INTAKE = 25.0 * 1.27;
-	//20
 	const float TURN_SPEED = 71.0 * 1.27; // 71
 	const float TURN_SPEED_SLOW = 45.0 * 1.27;
 	extern bool curr_launching;
@@ -272,6 +273,9 @@ namespace ace {
 	// Custom Button for Launch
 	static Btn_Digi btn_launch(pros::E_CONTROLLER_DIGITAL_R1, cntr_master);
 
+	// Custon Button for Launch Reverse
+	//static Btn_Digi btn_launch_reverse(pros::E_CONTROLLER_DIGITAL_R2, cntr_master);
+
 	// Custom Button for Endgame
 	static Btn_Digi btn_endgame(pros::E_CONTROLLER_DIGITAL_DOWN, cntr_master);
 
@@ -337,6 +341,14 @@ namespace ace {
 	 * @param isLong	bool whether is long launch or not
 	 */
 	extern void launch(float speed);
+
+	/**
+	// * @brief	launch function, called once per frame
+	 *
+	// * @param speed		speed at which to launch disks
+	// * @param isLong	bool whether is long launch or not
+	 */
+	//extern void launch_reverse(float speed);
 
 	/**
 	 * @brief	launch standby, sets speed / enabled once per frame

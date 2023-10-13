@@ -12,46 +12,43 @@ namespace ace::auton {
 	/*                               Score Auton                                   */
 	/* ========================================================================== */
 	void score() {
-	drive_chassis(48, DRIVE_SPEED);
-	turn_chassis(180, TURN_SPEED);
-	drive_chassis(12, DRIVE_SPEED);
-	intake_toggle(true);
-	pros::delay(1000);
-	intake_toggle(false);
-	turn_chassis(180, TURN_SPEED);
-	drive_chassis(12, DRIVE_SPEED);
-	launch_auton(3, LAUNCH_SPEED);
-	//Go for more goals?
+		drive_chassis(48, DRIVE_SPEED);
+		turn_chassis(180, TURN_SPEED);
+		drive_chassis(12, DRIVE_SPEED);
+		intake_toggle(true);
+		pros::delay(1000);
+		intake_toggle(false);
+		turn_chassis(180, TURN_SPEED);
+		drive_chassis(12, DRIVE_SPEED);
+		launch_auton(3, LAUNCH_SPEED);
+		//Go for more goals?
 	}
 
 	/* ========================================================================== */
 	/*                               Contact Auton                                  */
 	/* ========================================================================== */
 	void contact() {
-	drive_chassis(2, DRIVE_SPEED);
-	intake_toggle(true);
-	pros::delay(1000);
-	intake_toggle(false);
-	drive_chassis(-2, DRIVE_SPEED);
-	//Point to Elevation Bar
-	turn_chassis, (-90, TURN_SPEED);
-	drive_chassis(36, DRIVE_SPEED);
-	turn_chassis(-90, TURN_SPEED);
+		drive_chassis(2, DRIVE_SPEED);
+		intake_toggle(true);
+		pros::delay(1000);
+		intake_toggle(false);
+		drive_chassis(-2, DRIVE_SPEED);
+		//Point to Elevation Bar
+		turn_chassis(-90, TURN_SPEED);
+		drive_chassis(36, DRIVE_SPEED);
+		turn_chassis(-90, TURN_SPEED);
 	//Endgame TBD
 	}	
-
-
-
 
 	/* ========================================================================== */
 	/*                              Three Side Auton                              */
 	/* ========================================================================== */
 	void three_side() {
-	drive_chassis(48, DRIVE_SPEED);
-	turn_chassis(180, TURN_SPEED);
-	drive_chassis(12, DRIVE_SPEED);
-	intake_toggle(true);
-	// Dead
+		drive_chassis(48, DRIVE_SPEED);
+		turn_chassis(180, TURN_SPEED);
+		drive_chassis(12, DRIVE_SPEED);
+		intake_toggle(true);
+		// Dead
 	}
 
 	// ross is good
@@ -68,11 +65,27 @@ namespace ace::auton {
 	/* ========================================================================== */
 	void skills() {
 		drive_chassis(24, DRIVE_SPEED);
-	turn_chassis(-90, TURN_SPEED);
-	drive_chassis(6, DRIVE_SPEED);
-	intake_reverse(true);
+		turn_chassis(-90, TURN_SPEED);
+		drive_chassis(6, DRIVE_SPEED);
+		intake_reverse(true);
 	
+		intake_reverse(false);
+		drive_chassis(-6, DRIVE_SPEED);
+		turn_chassis(-90, TURN_SPEED);
+		drive_chassis(24, DRIVE_SPEED);
+		turn_chassis(-90, TURN_SPEED);
+		drive_chassis(24, DRIVE_SPEED);
+		//dead
+		
 	}
+	/* actual skilss
+	
+	launch_auton(50000, LAUNCH_SPEED);
+	drive_chassis(24,DRIVE_SPEED);
+	turn_chassis(-90, TURN_SPEED);
+	drive_chassis(24, DRIVE_SPEED);
+	turn_speed(90, TURN_SPEED);
+	drive_speed(96, DRIVE_SPEED); */
 
 	/* ========================================================================== */
 	/*                         Auton Function Definitions                         */
@@ -171,14 +184,7 @@ namespace ace::auton {
 		while(!launch_timer.done())
 		{
 			launch_timer.update(ez::util::DELAY_TIME);
-
-		} {
-
-
-
-
-		}
-
+		} 
 	}
 
 

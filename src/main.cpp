@@ -104,15 +104,15 @@ void autonomous()
 /* ========================================================================== */
 void opcontrol()
 {
-
-	int i = 0;
-
+	
 	chassis.set_drive_brake(MOTOR_BRAKE_COAST);
 
 	while (true)
 	{
 
-		/* -------------------------------- Get Input ------------------------------- */
+		/* ========================================================================== */
+		/*                                  Get Input                                 */
+		/* ========================================================================== */
 		
 		// Intake Toggle
 		if (ace::btn_intake_toggle.get_press())
@@ -120,11 +120,10 @@ void opcontrol()
 			ace::intake_enabled = true;
 			ace::intake_reverse_enabled = false;
 			ace::update_cntr_haptic("-", false);
-			
 
-		} else {
+		} else 
+		{
 			ace::intake_enabled = false;
-
 		}
 
 
@@ -144,36 +143,12 @@ void opcontrol()
 		// Launcher
 		if (ace::btn_launch.get_press())
 		{
-			ace::launch(ace::launch_speed);		
-			/*
-			ace::launch_enabled = !ace::launch_enabled;
-			if (ace::launch_enabled)
-			{
-				ace::update_cntr_haptic("-", false);
-			}
-			*/
-		} else {
-			//ace::btn_launch(false);
-			ace::launch(0);
+      		ace::launch_enabled = true;
+		} 
+		else {	
+      		ace::launch_enabled = false;
+    	}
 
-
-
-
-		}
-
-	/*
-		// Launcher Short
-		bool temp = ace::launch_short_enabled;
-		ace::launch_short_enabled = ace::btn_launch_short.get_press();
-		if (!ace::launch_short_enabled && temp)
-		{
-			ace::update_cntr_haptic("-", false);
-		}
-
-
-		// Launcher Short
-		ace::launch_long_enabled = ace::btn_launch_long.get_press();
-	*/
 		// Endgame Enabled
 		ace::endgame_enabled = ace::btn_endgame.get_press();
 
@@ -181,20 +156,12 @@ void opcontrol()
 		if (ace::btn_flap.get_press_new())
 		{
 			ace::flap_enabled = !ace::flap_enabled;
-
 		}
 
 		// Standby Enabled
 		if (ace::btn_standby.get_press_new())
 		{
 			ace::launcher_standby_enabled = !ace::launcher_standby_enabled;
-		}
-
-		// auto targeting toggle
-		
-		if (ace::btn_auto_targeting.get_press_new())
-		{
-			ace::auto_targeting_enabled = !ace::auto_targeting_enabled;
 		}
 
 		// Auton Page Up
@@ -208,22 +175,18 @@ void opcontrol()
 		{
 			ace::is_red_alliance = !ace::is_red_alliance;
 		}
-		/*
-		// Launcher Speed Short
-		if (ace::btn_launch_speed_short.get_press_new())
-			ace::launch_speed = ace::LAUNCH_SPEED_SHORT;
 
-		// Launcher Speed Long
-		if (ace::btn_launch_speed_long.get_press_new())
-			ace::launch_speed = ace::LAUNCH_SPEED_LONG;
-		*/
 		// Launcher Speed Increase
-		if (ace::btn_launch_speed_increase.get_press_new())
+		if (ace::btn_launch_speed_increase.get_press_new()) 
+		{
 			ace::launch_speed += 2.5;
+		}
 
 		// Launcher Speed Decrease
-		if (ace::btn_launch_speed_decrease.get_press_new())
+		if (ace::btn_launch_speed_decrease.get_press_new()) 
+		{
 			ace::launch_speed -= 2.5;
+		}
 
 		// Light Sensor
 		if (ace::light_sensor_detect())
@@ -232,49 +195,37 @@ void opcontrol()
 		}
 
 		/* --------------------------- Chassis Tank Drive --------------------------- */
-		
-		if (ace::auto_targeting_enabled)
-		{
-			ace::auto_target(true);
+   		chassis.tank();
 
-			// auto brake yes
-			chassis.set_active_brake(0.1);
-		}
-		else
-		{
-			ace::auto_target(false);
-			// auto brake no
-			chassis.set_active_brake(0);
-		
-			chassis.tank();
-		}
-		
-		
 
-		/* ------------------------------ User Control ------------------------------ */
-
+		/* ========================================================================== */
+		/*                        DO STUFF WITH ACQUIRED INPUT                        */
+		/* ========================================================================== */
 		for (int i = 0; i < 1; i++)
 		{
-
 			 
 			ace::endgame_toggle(ace::endgame_enabled);
 
-			ace::auto_target(ace::auto_targeting_enabled);
-
 			// Launch
-			/*s
 			if (ace::launch_enabled)
 			{
 				ace::launch(ace::launch_speed);
-				
-			
-			} else {
-				ace::launch(0);
 
+      		} else {
+
+				ace::launch(0);
 			}
-			*/
-			// launcher standby
-			//ace::launch_standby(ace::launcher_standby_enabled, ace::launch_speed);
+
+			// Launch Reverse
+			//if (ace::launch_reverse_enabled)
+		//	{
+			//	ace::launch_reverse(ace::launch_speed);
+
+      		//} else {
+
+			//	ace::launch_reverse(0);
+		//	}
+
 
 
 			// Intake Reverse
