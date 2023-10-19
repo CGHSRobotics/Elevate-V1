@@ -84,7 +84,7 @@ void autonomous()
 	std::string curr_auton = ace::auton::auton_selection[ace::auton::auton_selection_index];
 
 	ace::reset_motors();
-
+	/*
 	if (curr_auton == "1")
 	{
 		ace::auton::score();
@@ -97,6 +97,8 @@ void autonomous()
 	{
 		ace::auton::skills();
 	}
+	*/
+	ace::auton::score();
 }
 
 /* ========================================================================== */
@@ -144,13 +146,25 @@ void opcontrol()
 		if (ace::btn_launch.get_press())
 		{
       		ace::launch_enabled = true;
+			//ace::launch_reverse_enabled = false;
 		} 
 		else {	
       		ace::launch_enabled = false;
+			//ace::launch_reverse_enabled = false;
     	}
 
+		// Reverse Launcher
+		/*if (ace::btn_launch_reverse.get_press())
+		{
+      		ace::launch_enabled = false;
+			ace::launch_reverse_enabled = true;
+		} 
+		else {	
+      		ace::launch_enabled = false;
+			ace::launch_reverse_enabled = false;
 		// Endgame Enabled
 		ace::endgame_enabled = ace::btn_endgame.get_press();
+		*/
 
 		// Flapjack Enabled
 		if (ace::btn_flap.get_press_new())
@@ -217,14 +231,15 @@ void opcontrol()
 			}
 
 			// Launch Reverse
-			//if (ace::launch_reverse_enabled)
-		//	{
-			//	ace::launch_reverse(ace::launch_speed);
+			/*if (ace::launch_reverse_enabled)
+			{
+			ace::launch_reverse(ace::launch_speed);
 
-      		//} else {
+      		} else {
 
-			//	ace::launch_reverse(0);
-		//	}
+				ace::launch_reverse(0);
+			}
+			*/
 
 
 
@@ -307,6 +322,6 @@ void opcontrol()
 		/* ---------------------------------- Delay --------------------------------- */
 
 		pros::delay(ez::util::DELAY_TIME);
+		}
 	}
-}
 

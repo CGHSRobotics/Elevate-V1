@@ -231,11 +231,12 @@ namespace ace
 
 	}
 
-	//void launch_reverse(float speed){
 
-		//launcherMotorRight.move_voltage(-launch_speed);
+	/*void launch_reverse(float speed){
 
-	//}
+		launcherMotorRight.move_voltage(speed * -120);
+
+	}*/
 
 	// launch standby
 	void launch_standby(bool enabled, float speed)
@@ -277,9 +278,9 @@ namespace ace
 		}
 		else
 		{
-			endgamePneumatics.set_value(0);
+			flapPneumatics.set_value(0);
 		}
-	}\
+	}
 
 	
 	// toggles endgame
@@ -300,7 +301,7 @@ namespace ace
 			}
 
 			endgame_timer.update(20);
-			endgamePneumatics.set_value(1);
+			endgamePneumatics.set_value(0);
 		}
 	}
 

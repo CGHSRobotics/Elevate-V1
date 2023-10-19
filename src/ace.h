@@ -84,6 +84,7 @@ namespace ace {
 	#define PORT_INTAKE_TOP -19
 	#define PORT_LAUNCHER_LEFT 11
 	#define PORT_LAUNCHER_RIGHT 16
+	
 
 	#define PORT_VISION 10
 	#define PORT_IMU 15
@@ -92,7 +93,7 @@ namespace ace {
 
 	#define PORT_PNEU_ENDGAME { INTERNAL_ADI_PORT, 'A' }
 
-	#define PORT_PNEU_FLAP { INTERNAL_ADI_PORT, 'B' }
+	#define PORT_PNEU_FLAP { INTERNAL_ADI_PORT, 'H' }
 
 	#define PORT_SENSOR_LIGHT { INTERNAL_ADI_PORT, 'C' }
 
@@ -280,7 +281,7 @@ namespace ace {
 	static Btn_Digi btn_endgame(pros::E_CONTROLLER_DIGITAL_DOWN, cntr_master);
 
 	// Custom Button for Flapjack Toggle
-	static Btn_Digi btn_flap(pros::E_CONTROLLER_DIGITAL_B, cntr_master);
+	static Btn_Digi btn_flap(pros::E_CONTROLLER_DIGITAL_X, cntr_master);
 
 	/* ---------------------------------- Both ---------------------------------- */
 
@@ -343,7 +344,7 @@ namespace ace {
 	extern void launch(float speed);
 
 	/**
-	// * @brief	launch function, called once per frame
+	//// * @brief	launch function, called once per frame
 	 *
 	// * @param speed		speed at which to launch disks
 	// * @param isLong	bool whether is long launch or not
