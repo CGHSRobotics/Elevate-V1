@@ -84,21 +84,24 @@ void autonomous()
 	std::string curr_auton = ace::auton::auton_selection[ace::auton::auton_selection_index];
 
 	ace::reset_motors();
+
+	ace::auton::score();
+	
 	/*
-	if (curr_auton == "1")
+	if (curr_auton == "score")
 	{
 		ace::auton::score();
 	}
-	else if (curr_auton == "2")
+	else if (curr_auton == "contact")
 	{
 		ace::auton::contact();
 	}
-	else if (curr_auton == "3")
+	else if (curr_auton == "skills")
 	{
 		ace::auton::skills();
 	}
 	*/
-	ace::auton::score();
+	
 }
 
 /* ========================================================================== */

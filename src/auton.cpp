@@ -12,15 +12,20 @@ namespace ace::auton {
 	/*                               Score Auton                                   */
 	/* ========================================================================== */
 	void score() {
-		drive_chassis(48, DRIVE_SPEED);
-		turn_chassis(180, TURN_SPEED);
-		drive_chassis(12, DRIVE_SPEED);
-		intake_toggle(true);
+		drive_chassis(43, DRIVE_SPEED);
+		turn_chassis(90, TURN_SPEED);
+		ace::intake_reverse(true);
 		pros::delay(1000);
-		intake_toggle(false);
-		turn_chassis(180, TURN_SPEED);
-		drive_chassis(12, DRIVE_SPEED);
-		launch_auton(3, LAUNCH_SPEED);
+		ace::intake_reverse(false);
+		drive_chassis(-8, DRIVE_SPEED);
+		turn_chassis(-90, TURN_SPEED);
+		drive_chassis(-20, DRIVE_SPEED);
+		drive_chassis(3,DRIVE_SPEED);
+		turn_chassis(-180, TURN_SPEED);
+		drive_chassis(46, DRIVE_SPEED);
+		turn_chassis(-90, TURN_SPEED);
+		drive_chassis(38, DRIVE_SPEED);
+	
 		//Go for more goals?
 	}
 
@@ -28,16 +33,7 @@ namespace ace::auton {
 	/*                               Contact Auton                                  */
 	/* ========================================================================== */
 	void contact() {
-		drive_chassis(2, DRIVE_SPEED);
-		intake_toggle(true);
-		pros::delay(1000);
-		intake_toggle(false);
-		drive_chassis(-2, DRIVE_SPEED);
-		//Point to Elevation Bar
-		turn_chassis(-90, TURN_SPEED);
-		drive_chassis(36, DRIVE_SPEED);
-		turn_chassis(-90, TURN_SPEED);
-	//Endgame TBD
+	
 	}	
 
 	/* ========================================================================== */
@@ -57,6 +53,21 @@ namespace ace::auton {
 	/*                               Two Side Auton                               */
 	/* ========================================================================== */
 	void two_side() {
+
+		/*drive_chassis(43, DRIVE_SPEED);
+		turn_chassis(-90, TURN_SPEED);
+		ace::intake_reverse(true);
+		pros::delay(1000);
+		ace::intake_reverse(false);
+		drive_chassis(-8, DRIVE_SPEED);
+		turn_chassis(90, TURN_SPEED);
+		drive_chassis(-20, DRIVE_SPEED);
+		drive_chassis(3,DRIVE_SPEED);
+		turn_chassis(180, TURN_SPEED);
+		drive_chassis(46, DRIVE_SPEED);
+		turn_chassis(90, TURN_SPEED);
+		drive_chassis(34, DRIVE_SPEED);
+		*/
 	// Dead
 	}
 
@@ -64,18 +75,6 @@ namespace ace::auton {
 	/*                                   Skills                                   */
 	/* ========================================================================== */
 	void skills() {
-		drive_chassis(24, DRIVE_SPEED);
-		turn_chassis(-90, TURN_SPEED);
-		drive_chassis(6, DRIVE_SPEED);
-		intake_reverse(true);
-	
-		intake_reverse(false);
-		drive_chassis(-6, DRIVE_SPEED);
-		turn_chassis(-90, TURN_SPEED);
-		drive_chassis(24, DRIVE_SPEED);
-		turn_chassis(-90, TURN_SPEED);
-		drive_chassis(24, DRIVE_SPEED);
-		//dead
 		
 	}
 	/* actual skilss

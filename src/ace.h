@@ -90,7 +90,7 @@ namespace ace {
 	#define PORT_IMU 15
 
 	/* ------------------------------- ADI Devices ------------------------------ */
-
+ 
 	#define PORT_PNEU_ENDGAME { INTERNAL_ADI_PORT, 'A' }
 
 	#define PORT_PNEU_FLAP { INTERNAL_ADI_PORT, 'H' }
@@ -179,7 +179,7 @@ namespace ace {
 
 	// Launcher Speeds
 	
-	const float LAUNCH_SPEED = 100.0;
+	const float LAUNCH_SPEED = 80.0;
 	
 	const float LAUNCH_SPEED_STANDBY = LAUNCH_SPEED;
 	const float LAUNCHER_SPEED_CUTOFF = 5;
@@ -297,7 +297,7 @@ namespace ace {
 	/* --------------------------------- Partner -------------------------------- */
 
 	// Custom Button to Cycle Auton	
-	static Btn_Digi btn_auton(pros::E_CONTROLLER_DIGITAL_X, cntr_both);
+	static Btn_Digi btn_auton(pros::E_CONTROLLER_DIGITAL_RIGHT, cntr_master);
 
 	// Custom Button to switch alliance 
 	static Btn_Digi btn_alliance(pros::E_CONTROLLER_DIGITAL_A, cntr_both);
