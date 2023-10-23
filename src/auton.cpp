@@ -23,8 +23,8 @@ namespace ace::auton {
 		drive_chassis(3,DRIVE_SPEED);
 		turn_chassis(-180, TURN_SPEED);
 		drive_chassis(46, DRIVE_SPEED);
-		turn_chassis(-90, TURN_SPEED);
-		drive_chassis(38, DRIVE_SPEED);
+		turn_chassis(180, TURN_SPEED);
+		drive_chassis(-34, DRIVE_SPEED);
 	
 		//Go for more goals?
 	}
