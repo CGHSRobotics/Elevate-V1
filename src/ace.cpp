@@ -4,11 +4,11 @@
 
 Drive chassis(
 	// Left Chassis Ports (negative port will reverse it!)
-	{ PORT_CHASSIS_L_F,  PORT_CHASSIS_L_B }
+	{ PORT_CHASSIS_L_F, PORT_CHASSIS_L_M , PORT_CHASSIS_L_B }
 
 	// Right Chassis Ports (negative port will reverse it!)
 	,
-	{ PORT_CHASSIS_R_F, PORT_CHASSIS_R_B }
+	{ PORT_CHASSIS_R_F, PORT_CHASSIS_R_M, PORT_CHASSIS_R_B }
 
 	// IMU Port
 	,
@@ -24,7 +24,7 @@ Drive chassis(
 
 	// External Gear Ratio (MUST BE DECIMAL)
 	,
-	1.25);
+	0.8);
 
 
 // partner controller

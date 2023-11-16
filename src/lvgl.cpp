@@ -579,8 +579,9 @@ namespace ace::lvgl {
 		lv_obj_align(main_bar, NULL, LV_ALIGN_IN_TOP_LEFT, 10, 10);
 
 		main_bar_label = lv_label_create(main_cont, NULL);
+		
 		lv_obj_align(main_bar_label, NULL, LV_ALIGN_IN_TOP_LEFT, 50, (1 - ((float)lv_bar_get_value(main_bar) / 3600.0)) * 220 + 5);
-		lv_label_set_text(main_bar_label, std::to_string(lv_bar_get_value(main_bar)).c_str());
+		lv_label_set_text(main_bar_label, "TEST");
 		lv_label_set_style(main_bar_label, &style_text);
 
 		/* ------------------------------- Menu Button ------------------------------ */
@@ -713,17 +714,17 @@ namespace ace::lvgl {
 		menu_tab3_cont2_labelTemp2 = lv_label_create(menu_tab3_cont2, NULL);
 		lv_obj_set_style(menu_tab3_cont2_labelTemp2, &style_text);
 
-		/* ------------------------------ Tab 4 - Ross ------------------------------ */
-		menu_tab4 = lv_tabview_add_tab(menu_tabview, "Ross");
+		/* ------------------------------ Tab 4 - DElorean ------------------------------ */
+		menu_tab4 = lv_tabview_add_tab(menu_tabview, "Delorean");
 		lv_page_set_sb_mode(menu_tab4, LV_SB_MODE_OFF);
 
 		menu_tab4_ross = lv_img_create(menu_tab4, NULL);
 		lv_obj_align(menu_tab4_ross, NULL, LV_ALIGN_IN_TOP_LEFT, 300, 120);
-		lv_img_set_src(menu_tab4_ross, "S:/usd/ross_background.bin");
+		lv_img_set_src(menu_tab4_ross, "S:/usd/delorean_background.bin");
 
 		menu_tab4_ddlist = lv_ddlist_create(menu_tab4, menu_tab2_auton_drop);
 		lv_obj_set_size(menu_tab4_ddlist, 100, 60);
-		lv_ddlist_set_options(menu_tab4_ddlist, "ROSS\nLauncher\nIntake");
+		lv_ddlist_set_options(menu_tab4_ddlist, "DELOREAN\nLauncher\nIntake");
 		lv_obj_align(menu_tab4_ddlist, NULL, LV_ALIGN_IN_TOP_LEFT, 10, 10);
 		lv_ddlist_set_anim_time(menu_tab4_ddlist, 0);
 
