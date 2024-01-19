@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "DescendV2",
+    "project_name": "Elevate",
     "target": "v5",
     "templates": {
       "kernel": {

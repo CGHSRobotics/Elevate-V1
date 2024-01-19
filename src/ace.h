@@ -86,7 +86,7 @@ namespace ace {
 #define PORT_LAUNCHER_RIGHT 16
 
 #define PORT_VISION 10
-#define PORT_IMU 15
+#define PORT_IMU 4
 
 /* ------------------------------- ADI Devices ------------------------------ */
 
@@ -178,7 +178,7 @@ const float INTAKE_SPEED = 100.0;
 
 // Launcher Speeds
 
-const float LAUNCH_SPEED = 80.0;
+const float LAUNCH_SPEED = 100.0;
 
 const float LAUNCH_SPEED_STANDBY = LAUNCH_SPEED;
 const float LAUNCHER_SPEED_CUTOFF = 5;

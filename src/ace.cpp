@@ -18,7 +18,7 @@ Drive chassis(
     3.125
 
     // Cartridge RPM
-	
+
     ,
     600
 
@@ -165,7 +165,7 @@ util::timer long_launch_timer(650);
 // launch triball
 
 void launch(float speed) {
-  launcherMotorRight.move_voltage(speed * 120);
+  launcherMotorLeft.move_voltage(speed * 120);
 }
 
 /*void launch_reverse(float speed){
