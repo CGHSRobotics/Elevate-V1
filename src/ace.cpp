@@ -26,6 +26,14 @@ Drive chassis(
     ,
     1.875);
 
+ace::A_Motor left_wheel();
+
+ace::A_Motor right_wheel();
+
+ace::A_Motor left_wheel();
+
+ace::A_Motor left_wheel();
+
 // partner controller
 pros::Controller partner(pros::E_CONTROLLER_PARTNER);
 
